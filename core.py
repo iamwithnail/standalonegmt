@@ -21,9 +21,10 @@ def open_list():
 
 @app.route('/filter')
 def filtertest():
-    return render_template('filtertest.html')
+    import exceltojson as etj
+    return render_template('filtertest.html', grant_list=etj.build_json())
 
 
 if __name__ == '__main__':
     app.debug=True
-    app.run()
+    app.run(host='0.0.0.0')

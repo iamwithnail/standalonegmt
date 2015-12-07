@@ -3,41 +3,59 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel=stylesheet type=text/css href="static/main.css">
 </head>
 <body>
 <h1>  All Grants Currently Available </h1>
 <h2> Search</h2><textarea placeholder="Enter search value" id="search"></textarea>
 
-
 <table id="table">
-    <thead></thead>
-    <tr>
-        <th>Funder</th>
-        <th>Programme</th>
-        <th>Competition</th>
-        <th>Actions</th>
-        <th>Overview</th>
-        <th>Themes</th>
-        <th>Costs</th>
-        <th>Opens</th>
-        <th>Closes</th>
-        <th>MatchFund</th>
-    </tr>
+    <thead>
+        <tr>
+            <th colspan="2">Details</th>
+            <th>Overview</th>
+            <th>Themes</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for grant in grant_list %}
-    <tr>
-        <td>{{grant.Funder}}</td>
-        <td>{{grant.Programme}}</td>
-        <td>{{grant.Competition}}</td>
-        <td>{{grant.Actions}}</td>
-        <td>{{grant.Overview}}</td>
-        <td>{{grant.Themes}}</td>
-        <td>{{grant.Costs}}</td>
-        <td>{{grant.Opens}}</td>
-        <td>{{grant.Closes}}</td>
-        <td>{{grant.MatchFund}}</td>
-        {% endfor %}
-    </tr>
+    <tr id="master">
+
+        <tr>
+            <td width=10%>Funder</td>
+            <td width=20%>{{ grant.Funder}}</td>
+            <td width=35% rowspan=5>{{grant.Overview}}</td>
+            <td width=35% rowspan=5> {{grant.Themes}} </td>
+        </tr>
+
+        <tr>
+            <td width=10%>Programme</td>
+            <td width=20%>{{grant.Programme}}</td>
+
+        </tr>
+
+        <tr>
+            <td width=10%>Competition</td>
+            <td width=20%>{{grant.Competition}}</td>
+        </tr>
+
+        <tr>
+            <td width=10%>Actions</td>
+            <td width=20%>{{grant.Actions}}</td>
+
+        </tr>
+
+        <tr>
+            <td width=10%>Costs</td>
+            <td width=20%>{{grant.Costs}}</td>
+        </tr>
+
+
+
+    {% endfor %}
+    </tbody>
 </table>
+
    <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
    <script type="text/javascript" src="static/filter.js">
 

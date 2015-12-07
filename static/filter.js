@@ -1,4 +1,4 @@
-var $rows = $('#table tr');
+var $rows = $('table tr');
 $('#search').keyup(function() {
     var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 

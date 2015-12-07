@@ -19,6 +19,10 @@ def open_list():
     grant_list = []
     return render_template('grant_list.html', grant_list)
 
+@app.route('/filter')
+def filtertest():
+    return render_template('filtertest.html')
+
 
 if __name__ == '__main__':
     app.debug=True

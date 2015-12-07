@@ -1,6 +1,6 @@
-body            { font-family: sans-serif; background: #eee; }
+body            { font-family: sans-serif; background: #4CAF45; }
 a, h1, h2       { color: #377ba8; }
-h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1, h2          { font-family: sans-serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
 h2              { font-size: 1.2em; }
 
@@ -17,29 +17,48 @@ h2              { font-size: 1.2em; }
                   border: 1px solid #aacbe2; }
 .error          { background: #f0d6d6; padding: 0.5em; }
 
+.logo {width: 200px;, align:right;}
+.logo-container {float: right}
+.Table
+    {
+        display: table;
+    }
 
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+    }
 
-table {
-    empty-cells: show;
-    border: 1px solid #000;
-}
-
-table td,
-table th {
-    min-width: 2em;
-    min-height: 2em;
-    border: 1px solid #000;
-}
-
-tr:nth-child(odd) td {
+.Row:nth-child(odd) {
     background-color: #A0CCDA;
-    opac
-}
+    }
 
-tr:nth-child(even) td {
+    .Row:nth-child(even) {
     background-color: #CECFC7;
-}
+    }
 
-tr.highlight td {
+    .Row.highlight {
     background-color: #8BBD8B;
-}
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+

@@ -13,28 +13,30 @@
 <table id="table">
     <thead></thead>
     <tr>
-        <th>Funder</th>
-        <th>Programme</th>
-        <th>Competition</th>
-        <th>Actions</th>
+        <th>Details</th>
         <th>Overview</th>
         <th>Themes</th>
-        <th>Costs</th>
-        <th>Opens</th>
-        <th>Closes</th>
         <th>MatchFund</th>
     </tr>
     {% for grant in grant_list %}
     <tr>
-        <td>{{grant.Funder}}</td>
-        <td>{{grant.Programme}}</td>
-        <td>{{grant.Competition}}</td>
-        <td>{{grant.Actions}}</td>
+        <td>
+            <b>Funder</b>: {{grant.Funder}}
+            <hr>
+        <b>Programme:</b>{{grant.Programme}}
+            <hr>
+        <b>Competition:</b>{{grant.Competition}}
+            <hr>
+        <b>Actions:</b>{{grant.Actions}}
+            <hr>
+        <b>Costs:</b> {{ grant.Costs }}
+            <hr>
+        <b>Opens:</b> {{ grant.Opens }}
+            <hr>
+        <b>Closes:</b> {{ grant.Closes }}
+        </td>
         <td>{{grant.Overview}}</td>
         <td>{{grant.Themes}}</td>
-        <td>{{grant.Costs}}</td>
-        <td>{{grant.Opens}}</td>
-        <td>{{grant.Closes}}</td>
         <td>{{grant.MatchFund}}</td>
         {% endfor %}
     </tr>

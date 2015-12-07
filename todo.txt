@@ -1,0 +1,5 @@
+1)Add 'open' filter
+2)Add highlighting for word-searched-for to add page navigation
+3)Make available locally.  (Mac Mini?)
+4)Maybe pass the grant list variable out to JS and format it that way rather than using the trick hiding in
+ Jquery.  

@@ -32,12 +32,12 @@ table th {
 }
 
 tr:nth-child(odd) td {
-    background-color: #C1CC99;
+    background-color: #A0CCDA;
     opac
 }
 
 tr:nth-child(even) td {
-    background-color: #F5A65B;
+    background-color: #CECFC7;
 }
 
 tr.highlight td {

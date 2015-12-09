@@ -72,7 +72,7 @@ def read_sheet(sheet, open=False):
             grants_list.append(grant)
         else:
             try:
-                print grant["Closes"], type(grant["Closes"])
+                
                 if not isinstance(grant["Closes"], str):
                     if grant["Closes"] > datetime.now().date():
                         grants_list.append(grant)

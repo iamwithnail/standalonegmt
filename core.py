@@ -13,11 +13,10 @@ def main_list():
 
     return render_template('grant_list2.html', grant_list=etj.build_json())
 
-@app.route('/main/open')
+@app.route('/open')
 def open_list():
     import exceltojson as etj
-    grant_list = []
-    return render_template('grant_list2.html', grant_list)
+    return render_template('grant_list2.html', grant_list=etj.build_json(True))
 
 @app.route('/filter')
 def filtertest():

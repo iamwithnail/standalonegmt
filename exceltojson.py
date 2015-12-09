@@ -68,16 +68,31 @@ def read_sheet(sheet, open=False):
             'Location': row_values[15],
             'URL': row_values[16],
             'Contact': row_values[17]}
-        grants_list.append(grant)
+        if not open:
+            grants_list.append(grant)
+        else:
+            try:
+                print grant["Closes"], type(grant["Closes"])
+                if not isinstance(grant["Closes"], str):
+                    if grant["Closes"] > datetime.now().date():
+                        grants_list.append(grant)
+                    else:
+                        #we don't need to include this in open grants
+                        pass
+                else:
+                    pass
+            except ValueError, KeyError:
+                #silently skip that error if date is invalid or not provided
+                pass
     return grants_list
 
 
 def jsonify(list):
     return json.dumps(list)
 
-def build_json():
+def build_json(open=False):
     workbook = import_workbook()
     sheet = import_sheet(workbook)
-    bare_grants_list = read_sheet(sheet)
+    bare_grants_list = read_sheet(sheet, open)
     #grant_detail = jsonify(bare_grants_list)
     return bare_grants_list

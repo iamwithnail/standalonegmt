@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel=stylesheet type=text/css href="static/main.css">
+</head>
+<body>
+<h1>  All Grants Currently Available </h1>
+<h2> Search</h2><textarea placeholder="Enter search value" id="search"></textarea>
+
+<table id="table" class="filterable">
+    <thead>
+        <tr>
+            <th>Funder </th>
+            <th>Details</th>
+            <th>Overview</th>
+            <th>Themes</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for grant in grant_list %}
+
+
+        <tr>
+            <td >{{ grant.Funder}}</td>
+            <td>{{grant.Overview}}</td>
+            <td> {{grant.Themes}} </td>
+
+            <td>{{grant.Programme}}</td>
+
+
+            <td>{{grant.Competition}}</td>
+
+            <td>{{grant.Actions}}</td>
+            <td>{{grant.Costs}}</td>
+        </tr>
+
+
+
+    {% endfor %}
+    </tbody>
+</table>
+
+   <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
+   <script type="text/javascript" src="static/filter2.js">
+
+    </script>
+
+</body>
+</html>
+
+

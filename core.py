@@ -11,12 +11,12 @@ def hello_world():
 def main_list():
     import exceltojson as etj
 
-    return render_template('grant_list2.html', grant_list=etj.build_json())
+    return render_template('grantspage.html', grant_list=etj.build_json())
 
 @app.route('/open')
 def open_list():
     import exceltojson as etj
-    return render_template('grant_list2.html', grant_list=etj.build_json(True))
+    return render_template('grantspage.html', grant_list=etj.build_json(True))
 
 @app.route('/filter')
 def filtertest():
@@ -27,7 +27,7 @@ def filtertest():
 @app.route('/test')
 def othertest():
     import exceltojson as etj
-    return render_template('grant_list2.html', grant_list=etj.build_json())
+    return render_template('grantspage.html', grant_list=etj.build_json())
 
 if __name__ == '__main__':
     app.debug=True

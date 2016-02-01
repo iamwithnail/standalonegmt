@@ -62,3 +62,25 @@ h2              { font-size: 1.2em; }
         padding-right: 5px;
     }
 
+
+    /* duplicate for now as running test parallel */
+
+tr:nth-child(odd) {
+    background-color: #A0CCDA;
+    }
+
+tr:nth-child(even) {
+    background-color: #CECFC7;
+    }
+
+tr.highlight {
+    background-color: #8BBD8B;
+    }
+td
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }

@@ -3,55 +3,64 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link rel=stylesheet type=text/css href="static/main.css">
+   <link rel=stylesheet type=text/css href="static/main.css">
+    <link rel=stylesheet type=text/css href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
 </head>
 <body>
-<h1>  All Grants Currently Available </h1>
+    <h1>  All Grants Currently Available </h1>
 
 
-<h2>
-    Keyword Search
-</h2>
-<span class="input-group-addon" id="basic-addon1"><textarea placeholder="Enter search value" id="search"></textarea></span>
+    <h2>
+        Keyword Search
+    </h2>
+    <span class="input-group-addon" id="basic-addon1">
+        <textarea placeholder="Enter search value" id="search"></textarea>
+    </span>
 
-<table id="table" class="filterable">
-    <thead>
-        <tr>
-            <th>Funder </th>
-            <th>Details</th>
-            <th>Overview</th>
-            <th>Themes</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for grant in grant_list %}
-
-
-        <tr>
-            <td >{{ grant.Funder}}</td>
-            <td>{{grant.Overview}}</td>
-            <td> {{grant.Themes}} </td>
-
-            <td>{{grant.Programme}}</td>
+    <table id="table" class="filterable">
+        <thead>
+            <tr>
+                <th>Funder </th>
+                <th>Details</th>
+                <th>Overview</th>
+                <th>Themes</th>
+                <th>Themes</th>
+                <th>Themes</th>
+                <th>Themes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for grant in grant_list %}
 
 
-            <td>{{grant.Competition}}</td>
+            <tr>
+                <td >{{ grant.Funder}}</td>
+                <td>{{grant.Overview}}</td>
+                <td> {{grant.Themes}} </td>
 
-            <td>{{grant.Actions}}</td>
-            <td>{{grant.Costs}}</td>
-        </tr>
+                <td>{{grant.Programme}}</td>
+
+
+                <td>{{grant.Competition}}</td>
+
+                <td>{{grant.Actions}}</td>
+                <td>{{grant.Costs}}</td>
+            </tr>
 
 
 
-    {% endfor %}
-    </tbody>
-</table>
+        {% endfor %}
+        </tbody>
+    </table>
 
-   <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
-   <script type="text/javascript" src="static/filter2.js">
-
+       <script src="http://code.jquery.com/jquery-1.7.0.js"></script>
+      <!-- <script type="text/javascript" src="static/filter2.js"></script> -->
+           <script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table').DataTable();
+        } );
     </script>
-
 </body>
 </html>
 

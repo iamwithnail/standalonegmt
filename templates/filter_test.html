@@ -5,17 +5,15 @@
     <title></title>
    <link rel=stylesheet type=text/css href="static/main.css">
     <link rel=stylesheet type=text/css href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <link rel="icon"
+      type="image/png"
+      href="static/favicon.ico">
 </head>
 <body>
     <h1>  All Grants Currently Available </h1>
 
 
-    <h2>
-        Keyword Search
-    </h2>
-    <span class="input-group-addon" id="basic-addon1">
-        <textarea placeholder="Enter search value" id="search"></textarea>
-    </span>
+
 
     <table id="table" class="filterable">
         <thead>
@@ -58,7 +56,9 @@
            <script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready( function () {
-            $('#table').DataTable();
+            $('#table').DataTable( {
+                "lengthMenu": [ [-1, 10, 25, 50], ["All", 10, 25, 50] ]
+            });
         } );
     </script>
 </body>

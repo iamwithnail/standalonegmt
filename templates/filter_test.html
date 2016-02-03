@@ -18,41 +18,24 @@
     <table id="table" class="filterable">
         <thead>
             <tr>
-                <th>Funder </th>
-                <th>Details</th>
-                <th>Overview</th>
-                <th>Themes</th>
-                <th>Themes</th>
-                <th>Themes</th>
-                <th>Themes</th>
+                {% for header in grant_list[0] %}
+                <th> {{ header }} </th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>
-        {% for grant in grant_list %}
-
-
+        {% for grant in grant_list[1:] %}
             <tr>
-                <td >{{ grant.Funder}}</td>
-                <td>{{grant.Overview}}</td>
-                <td> {{grant.Themes}} </td>
-
-                <td>{{grant.Programme}}</td>
-
-
-                <td>{{grant.Competition}}</td>
-
-                <td>{{grant.Actions}}</td>
-                <td>{{grant.Costs}}</td>
+                {% for header in grant_list[0] %}
+                     <td>{{ grant[header] }}</td>
+                {% endfor %}
             </tr>
-
-
-
-        {% endfor %}
+        {%  endfor %}
         </tbody>
     </table>
 
        <script src="http://code.jquery.com/jquery-1.7.0.js"></script>
-      <!-- <script type="text/javascript" src="static/filter2.js"></script> -->
+      <!-- <script type="text/javascript" src="static/filter_old.js"></script> -->
            <script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready( function () {

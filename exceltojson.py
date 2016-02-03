@@ -1,19 +1,18 @@
 __author__ = 'chris'
 
 import xlrd
-from collections import OrderedDict
 import simplejson as json
 
 
-def import_workbook(filename='static/gmt.xls'):
+def import_workbook(filename='static/GT180116.xlsx'):
     try:
         wb = xlrd.open_workbook(filename)
     except(IOError):
         raise
     return wb
 
-def import_sheet(workbook, sheetname='OPEN UK GRANTS'):
-    sheet = workbook.sheet_by_index(1)
+def import_sheet(workbook, sheetname='UK GRANTS'):
+    sheet = workbook.sheet_by_index(2)
     return sheet
 
 def transform_date_from_row(row_value):
@@ -26,54 +25,24 @@ def read_sheet(sheet, open=False):
     grants_list = []
     from datetime import datetime
 
-    for rownum in range(2, sheet.nrows):
+    #Get the values for the column names, and append to list so grants_list[0] is header in template.
+    header_values = sheet.row_values(0)
+    grants_list.append(header_values)
+    print header_values
+    #work through sheet, then create a dictionary for each grant, appending it to the final list as appropriate
+    for rownum in range(1, sheet.nrows):
+        grant = {}
         row_values = sheet.row_values(rownum)
-        try:
-            grant = {
-            'Funder': row_values[0],
-            'Programme': row_values[1],
-            'Competition': row_values[2],
-            'Actions': row_values[3],
-            'Overview': row_values[4],
-            'Themes': row_values[5],
-            'Costs': row_values[6],
-            'Opens': transform_date_from_row(row_values[7]),
-            'RegistrationCloses': transform_date_from_row(row_values[8]),
-            'Closes': transform_date_from_row(row_values[9]),
-            'MatchFund': row_values[10],
-            'Partnerships': row_values[11],
-            'OrgType': row_values[12],
-            'OrgRestrictions': row_values[13],
-            'TRL': row_values[14],
-            'Location': row_values[15],
-            'URL': row_values[16],
-            'Contact': row_values[17]}
-        except ValueError:
-            grant = {
-            'Funder': row_values[0],
-            'Programme': row_values[1],
-            'Competition': row_values[2],
-            'Actions': row_values[3],
-            'Overview': row_values[4],
-            'Themes': row_values[5],
-            'Costs': row_values[6],
-            'Opens': "",
-            'RegistrationCloses': "",
-            'Closes': "",
-            'MatchFund': row_values[10],
-            'Partnerships': row_values[11],
-            'OrgType': row_values[12],
-            'OrgRestrictions': row_values[13],
-            'TRL': row_values[14],
-            'Location': row_values[15],
-            'URL': row_values[16],
-            'Contact': row_values[17]}
+        #cycle through the headernames to create the subdictionary
+        for i, header in enumerate(header_values):
+            grant[header] = row_values[i]
+
+        print grant
         if not open:
             grants_list.append(grant)
         else:
             try:
-                
-                if not isinstance(grant["Closes"], str):
+                if not isinstance(grant["Date Closes"], str):
                     if grant["Closes"] > datetime.now().date():
                         grants_list.append(grant)
                     else:
